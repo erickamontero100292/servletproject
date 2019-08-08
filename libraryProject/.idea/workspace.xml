@@ -2,13 +2,23 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="library" />
       <artifact name="libraryProject:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bf47111-69a1-412e-b842-98eb5a4e0da9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/libraryProject_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/libraryProject_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/mysql-connector-java-5.1.41-bin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/mysql-connector-java-5.1.44.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/detalle.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/detalle.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraryProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/libraryProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/library/controller/SiteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/library/controller/SiteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/library/controller/SolicitudeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/library/controller/SolicitudeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/library/dao/BookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/library/dao/BookDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/library/dao/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/library/dao/DbConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/library/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/library/model/Book.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,13 +47,17 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="libraryproject" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/WebContent/WEB-INF/lib/javax.servlet-api-4.0.1.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/WebContent/WEB-INF/lib/mysql-connector-java-5.1.44.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.19475277" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -150,8 +164,16 @@
       <workItem from="1565112152448" duration="806000" />
       <workItem from="1565206111138" duration="2530000" />
       <workItem from="1565210294028" duration="299000" />
-      <workItem from="1565210896722" duration="211000" />
+      <workItem from="1565210896722" duration="6223000" />
     </task>
+    <task id="LOCAL-00001">
+      <created>1565224148161</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1565224148162</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,5 +191,34 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/library/dao/BookDao.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/library/controller/SiteController.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/library/dao/BookDao.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/library/dao/BookDao.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
