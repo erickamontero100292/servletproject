@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.library.dao.BookDao;
+import com.library.dao.DbConnection;
 import com.library.model.Book;
 
 
@@ -24,11 +25,10 @@ public class SiteController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		RequestDispatcher rd;
-		// DbConnection conn = new DbConnection();
-		// BookDao servidorDao = new BookDao(conn);
-		BookDao servidorDao = new BookDao();
-		List<Book> bookList = servidorDao.getUltimos();
-		//conn.disconnect();
+		 DbConnection conn = new DbConnection();
+		 BookDao bookDao = new BookDao(conn);
+		List<Book> bookList = bookDao.getUltimos();
+		conn.disconnect();
 		request.setAttribute("bookList", bookList);
 		rd = request.getRequestDispatcher("/index.jsp");
 		rd.forward(request, response);

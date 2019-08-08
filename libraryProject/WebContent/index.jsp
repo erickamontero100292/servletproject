@@ -35,25 +35,25 @@
       <!-- Formulario para la busqueda. El formulario es enviado por POST al BusquedaController -->    
       <form method ="post" action="buscar" class="navbar-form navbar-right">
         <div class="form-group">
-          <input type="text" name="query" required placeholder="Buscar servidor..." class="form-control">
+          <input type="text" name="query" required placeholder="Buscar libro..." class="form-control">
         </div>        
         <button type="submit" class="btn btn-success">Buscar</button>
       </form>
           
       <!-- Jumbotron -->
       <div class="jumbotron">
-        <h2>¡ENCUENTRA TU LIBRO!</h2>
+        <h2>ENCUENTRA TU LIBRO!</h2>
         <!--
         <h4>ESTAMOS CONTRATANDO</h4>
         -->
-        <p class="lead text-justify">Bienvenido, aqui­ podras encontrar los libros necesarios para 
+        <p class="lead text-justify">Bienvenido, aqui podras encontrar los libros necesarios para
           tu trabajo diario. Haz clic en un libro para ver los detalles y envianos tu solicitud de reserva. 
           Nosotros revisaremos tu solicitud y contactaremos contigo.<br><br>
 
-        <p><a class="btn btn-lg btn-success" href="servidor?action=lista" role="button">Ver todos los libros</a></p>                
+        <p><a class="btn btn-lg btn-success" href="libro?action=lista" role="button">Ver todos los libros</a></p>
       </div>
 
-      <h1>Servidores recientes</h1>
+      <h1>Libros recientes</h1>
 
       <!-- Example row of columns -->
       <div class="row">

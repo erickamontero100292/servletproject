@@ -3,18 +3,30 @@ package com.library.model;
 import java.util.Date;
 
 public class Book {
-	
+	int id;
 	String name;
 	String author;
-	Date publicDate;
-	
-	
+	Date datePublished;
+
+	public Book(int id) {
+		this.id = id;
+	}
+
 	public Book(String name) {
 		
 		this.name = name;
 		this.author ="Ericka";
-		this.publicDate = new Date();
+		this.datePublished = new Date();
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -27,11 +39,11 @@ public class Book {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public Date getPublicDate() {
-		return publicDate;
+	public Date getDatePublished() {
+		return datePublished;
 	}
-	public void setPublicDate(Date publicDate) {
-		this.publicDate = publicDate;
+	public void setDatePublished(Date datePublished) {
+		this.datePublished = datePublished;
 	}
 	
 

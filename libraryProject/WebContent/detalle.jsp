@@ -26,13 +26,13 @@
         <nav>
           <ul class="nav nav-justified">
             <li><a href="homepage">Inicio</a></li>            
-            <li><a href="admin?action=login">Administración</a></li>                        
+            <li><a href="admin?action=login">Administraciï¿½n</a></li>                        
           </ul>
         </nav>
       </div>
       <form method ="post" action="buscar" class="navbar-form navbar-right">
         <div class="form-group">
-          <input type="text" name="query" required placeholder="Buscar servidor..." class="form-control">
+          <input type="text" name="query" required placeholder="Buscar libros..." class="form-control">
         </div>        
         <button type="submit" class="btn btn-success">Buscar</button>
       </form>
@@ -45,9 +45,9 @@
         <div class="panel-body">
           <h5><b>Libro</b>: ${book.name}</h5>
           <h5><b>Autor</b>: ${book.author}</h5>                             
-          <b>Descripción:</b><br>
-          <p class="text-justify">${book.publicDate}</p>
-          <b>Detalles del servidor</b>:<br>
+          <b>Descripciï¿½n:</b><br>
+          <p class="text-justify">${book.datePublished}</p>
+          <b>Detalles del libro</b>:<br>
           ${book.name}<br>
           
           <!--
