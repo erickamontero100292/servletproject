@@ -53,7 +53,7 @@
           <!--
           Mostramos un boton para permitir a un usuario enviar documentos adjuntos a su solicitud.
           -->          
-          <p><a class="btn btn-default btn-success" title="Reservar" href="servidor?action=enviar&id=${book.name}" role="button">Reservar</a></p>
+          <p><a class="btn btn-default btn-success" title="Reservar" href="libro?action=enviar&id=${book.name}" role="button">Reservar</a></p>
         </div>
         
       </div>      

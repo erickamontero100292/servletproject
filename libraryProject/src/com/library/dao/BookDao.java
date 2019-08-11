@@ -2,6 +2,7 @@ package com.library.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -38,6 +39,30 @@ public class BookDao {
 
         } catch (Exception e) {
             System.out.println("Error BookDao.getUltimos: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public List<Book> getAll(){
+
+        try {
+            String sql = "select * from book order by id desc";
+            PreparedStatement preparedStatement = conn.getConnection().prepareStatement(sql);
+            ResultSet rs = preparedStatement.executeQuery();
+            List<Book> list = new LinkedList<>();
+            Book book;
+            while (rs.next()) {
+                book = new Book(rs.getInt("id"));
+                book.setDatePublished(rs.getDate("date_published"));
+                book.setName(rs.getString("name"));
+                book.setAuthor(rs.getString("author"));
+                //book.set(rs.getString("detalle"));
+                list.add(book);
+            }
+            return list;
+
+        } catch (SQLException e) {
+            System.out.println("Error BookDao.getAll: " + e.getMessage());
             return null;
         }
     }

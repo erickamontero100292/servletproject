@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="libraryWAR">
+    <output-path>$PROJECT_DIR$/classes/artifacts/</output-path>
+    <root id="archive" name="libraryWAR.war" />
+  </artifact>
+</component>
