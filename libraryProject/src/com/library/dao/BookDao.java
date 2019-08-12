@@ -43,7 +43,7 @@ public class BookDao {
         }
     }
 
-    public List<Book> getAll(){
+    public List<Book> getAll() {
 
         try {
             String sql = "select * from book order by id desc";
@@ -56,13 +56,36 @@ public class BookDao {
                 book.setDatePublished(rs.getDate("date_published"));
                 book.setName(rs.getString("name"));
                 book.setAuthor(rs.getString("author"));
-                //book.set(rs.getString("detalle"));
+                book.setDescription(rs.getString("description"));
                 list.add(book);
             }
             return list;
 
         } catch (SQLException e) {
             System.out.println("Error BookDao.getAll: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public Book getById(int idBook) {
+        try {
+            String sql = "select * from book where id=? ";
+            PreparedStatement preparedStatement = conn.getConnection().prepareStatement(sql);
+            preparedStatement.setInt(1, idBook);
+            ResultSet rs = preparedStatement.executeQuery();
+            Book srv = new Book(0);
+            while (rs.next()) {
+                // Create an object for the movie
+                srv.setId(rs.getInt("id"));
+                srv.setDatePublished(rs.getDate("date_published"));
+                srv.setName(rs.getString("name"));
+                srv.setAuthor(rs.getString("author"));
+                srv.setDescription(rs.getString("description"));
+            }
+            return srv;
+
+        } catch (SQLException e) {
+            System.out.println("Error ServidorDao.getById: " + e.getMessage());
             return null;
         }
     }

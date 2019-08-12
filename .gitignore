@@ -1,2 +1,6 @@
 *.class
 libraryProject/classes/
+*.patch
+*.xml
+*.war
+libraryProject/META-INF/MANIFEST.MF

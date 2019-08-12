@@ -26,7 +26,7 @@
         <nav>
           <ul class="nav nav-justified">
             <li><a href="homepage">Inicio</a></li>            
-            <li><a href="admin?action=login">Administraci�n</a></li>                        
+            <li><a href="admin?action=login">Administracion</a></li>
           </ul>
         </nav>
       </div>
@@ -40,15 +40,14 @@
 
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">ID: ${book.name}</h3>
+          <h3 class="panel-title">Nombre del libro: ${book.name}</h3>
         </div>
         <div class="panel-body">
           <h5><b>Libro</b>: ${book.name}</h5>
-          <h5><b>Autor</b>: ${book.author}</h5>                             
-          <b>Descripci�n:</b><br>
-          <p class="text-justify">${book.datePublished}</p>
-          <b>Detalles del libro</b>:<br>
-          ${book.name}<br>
+          <h5><b>Autor</b>: ${book.author}</h5>
+          <h5><b>Fecha de publicacion</b>: ${book.datePublished}</h5>
+          <b>Descripcion:</b><br>
+          <p class="text-justify">${book.description}</p>
           
           <!--
           Mostramos un boton para permitir a un usuario enviar documentos adjuntos a su solicitud.

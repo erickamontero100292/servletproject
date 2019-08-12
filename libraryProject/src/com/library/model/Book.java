@@ -7,6 +7,7 @@ public class Book {
 	String name;
 	String author;
 	Date datePublished;
+	String description;
 
 	public Book(int id) {
 		this.id = id;
@@ -45,6 +46,12 @@ public class Book {
 	public void setDatePublished(Date datePublished) {
 		this.datePublished = datePublished;
 	}
-	
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }
