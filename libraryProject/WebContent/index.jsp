@@ -64,7 +64,7 @@
             <h3>Libro: [${book.name}]</h3> 
             <p class="text-danger">${book.author}</p>          
             <p class="text-justify">${book.datePublished}</p>
-            <p><a class="btn btn-primary" href="libro?action=ver&id=${book.name}" role="button">Ver Detalles&raquo;</a></p>
+            <p><a class="btn btn-primary" href="libro?action=ver&id=${book.id}" role="button">Ver Detalles&raquo;</a></p>
           </div>
 
         </c:forEach> 
