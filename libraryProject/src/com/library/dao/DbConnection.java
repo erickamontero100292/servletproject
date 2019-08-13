@@ -4,30 +4,17 @@ import java.sql.*;
 
 public class DbConnection {
 
-   // Constantes de instancia de la clase
-   /* Se declaran constantes, porque van a ser siempre los mismos valores
-      cada vez que se vaya a crear un objeto de tipo DbConnection
-    */
-   static String bd = "librarydb";
-   static String login = "root";
-   static String password = "";
-   static String url = "jdbc:mysql://localhost/" + bd;
-   // Esta variable va a guardar la conexion
+
+   static String BD = "library";
+   static String LOGIN = "root";
+   static String PASSWORD = "123456";
+   static String URL = "jdbc:mysql://localhost/" + BD;
    Connection conn = null;
 
-   /**
-    * Constructor de la clase. Se llama constructor porque tiene el mismo
-    * nombre que la clase y cuando se crea un nuevo objeto de esta clase es como
-    * se va a inicializar al crear un nuevo objeto de este tipo.
-    *
-    */
    public DbConnection() {
       try {
-         //obtenemos el driver para mysql
          Class.forName("com.mysql.jdbc.Driver");
-         //obtenemos una conexion con los parametros especificados anteriormente 
-         conn = DriverManager.getConnection(url, login, password);
-         // Si conn no es nulo, significa que pidimos conectarnos
+         conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);
          if (conn != null) {
             System.out.println("Connecting database [" + conn + "] OK");
          }

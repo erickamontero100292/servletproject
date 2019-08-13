@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
-    <title>Departamento de libros - Libros disponibles</title>
+    <title>Lista de todos los libros</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -27,48 +27,50 @@
         <nav>
           <ul class="nav nav-justified">
             <li><a href="homepage">Inicio</a></li>            
-            <li><a href="admin?action=login">Administracion</a></li>
+            <li><a href="admin?action=login">Administración</a></li>                        
           </ul>
         </nav>
       </div>
-      
-      <!-- Formulario para la busqueda. El formulario es enviado por POST al BusquedaController -->    
       <form method ="post" action="buscar" class="navbar-form navbar-right">
         <div class="form-group">
           <input type="text" name="query" required placeholder="Buscar libro..." class="form-control">
         </div>        
         <button type="submit" class="btn btn-success">Buscar</button>
       </form>
-          
-      <!-- Jumbotron -->
-      <div class="jumbotron">
-        <h2>ENCUENTRA TU LIBRO!</h2>
-        <!--
-        <h4>ESTAMOS CONTRATANDO</h4>
-        -->
-        <p class="lead text-justify">Bienvenido, aqui podras encontrar los libros necesarios para
-          tu trabajo diario. Haz clic en un libro para ver los detalles y envianos tu solicitud de reserva. 
-          Nosotros revisaremos tu solicitud y contactaremos contigo.<br><br>
+      <br><br><br>
 
-        <p><a class="btn btn-lg btn-success" href="libro?action=lista" role="button">Ver todos los libros</a></p>
-      </div>
-
-      <h1>Libros recientes</h1>
-
-      <!-- Example row of columns -->
-      <div class="row">
-
-        <c:forEach items="${bookList}" var="book" varStatus="status">
-
-          <div class="col-lg-4">
-            <h3>Libro: [${book.name}]</h3> 
-            <p class="text-danger">${book.author}</p>          
-            <p class="text-justify">${book.datePublished}</p>
-            <p><a class="btn btn-primary" href="libro?action=ver&id=${book.id}" role="button">Ver Detalles&raquo;</a></p>
-          </div>
-
-        </c:forEach> 
-       
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><b>Lista de libros</b></h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="left">ID</th>
+                <th>Libro</th>
+                <th>Publicado</th>                
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <c:forEach items="${books}" var="book" varStatus="status">
+                <tr>
+                  <td class="left">${book.id}</td>
+                  <td>${book.name}</td>
+                  <td>${book.datePublished}</td>
+                  <td><a class="btn btn-default" href="libro?action=ver&id=${book.id}" role="button">Ver Detalles</a>
+                  
+                  <c:if test="${usuario.id > 0}">
+                    <a class="btn btn-default" href="admin?action=eliminar&idServidor=${book.id}" role="button">Eliminar</a>
+                  </c:if>
+                        
+                  </td>  
+                </tr>
+              </c:forEach>                      
+            </tbody>           
+          </table>
+        </div>
       </div>
 
       <!-- Site footer -->

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
-    <title>Detalle del libro- ${book.name}</title>
+    <title>Administracion del Sistema</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -22,40 +22,30 @@
       <!-- The justified navigation menu is meant for single line per list item.
            Multiple lines will require custom code not provided by Bootstrap. -->
       <div class="masthead">
-        <h3 class="text-muted">Libros</h3>
+        <h3 class="text-muted">Administracion</h3>
         <nav>
           <ul class="nav nav-justified">
-            <li><a href="homepage">Inicio</a></li>            
-            <li><a href="admin?action=login">Administracion</a></li>
+            <li><a href="admin?action=crear">Alta de libro</a></li>
+            <li><a href="libro?action=lista">Libros</a></li>
+            <li><a href="solicitud?action=solicitudes">Solicitudes</a></li> 
+            <li><a href="admin?action=logout">Salir</a></li>            
           </ul>
         </nav>
       </div>
-      <form method ="post" action="buscar" class="navbar-form navbar-right">
-        <div class="form-group">
-          <input type="text" name="query" required placeholder="Buscar libros..." class="form-control">
-        </div>        
-        <button type="submit" class="btn btn-success">Buscar</button>
-      </form>
-      <br><br><br>
+      <br>
 
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Nombre del libro: ${book.name}</h3>
+          <h3 class="panel-title">Bienvenido ${usuario.name}</h3>
         </div>
         <div class="panel-body">
-          <h5><b>Libro</b>: ${book.name}</h5>
-          <h5><b>Autor</b>: ${book.author}</h5>
-          <h5><b>Fecha de publicacion</b>: ${book.datePublished}</h5>
-          <b>Descripcion:</b><br>
-          <p class="text-justify">${book.description}</p>
-          
-          <!--
-          Mostramos un boton para permitir a un usuario enviar documentos adjuntos a su solicitud.
-          -->          
-          <p><a class="btn btn-default btn-success" title="Reservar" href="libro?action=enviar&id=${book.name}" role="button">Reservar</a></p>
+          <h2 class="panel-title"><b>Username</b><br> ${usuario.username}<br><br></h2>
+          <h2 class="panel-title"><b>Email</b><br> ${usuario.email}<br><br></h2>
+          <h2 class="panel-title"><b>Perfil</b><br> ${usuario.profile}<br><br></h2>
+          <h2 class="panel-title"><b>Estado</b><br>${usuario.state}<br><br></h2>
         </div>
-        
-      </div>      
+      </div>
+
       <!-- Site footer -->
       <footer class="footer">
         <p>&copy; 2017 JASR.</p>

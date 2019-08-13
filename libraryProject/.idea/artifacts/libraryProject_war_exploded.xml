@@ -6,6 +6,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="libraryProject" />
         </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/WebContent/WEB-INF/lib/mysql-connector-java-5.1.44.jar" />
+        </element>
       </element>
       <element id="javaee-facet-resources" facet="libraryProject/web/Web" />
     </root>

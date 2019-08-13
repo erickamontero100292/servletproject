@@ -16,6 +16,11 @@
 		<servlet-name>BookController</servlet-name>
 		<servlet-class>com.library.controller.BookController</servlet-class>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>AdminController</servlet-name>
+		<servlet-class>com.library.controller.AdminController</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>SiteController</servlet-name>
@@ -25,5 +30,10 @@
 	<servlet-mapping>
 		<servlet-name>BookController</servlet-name>
 		<url-pattern>/libro</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>AdminController</servlet-name>
+		<url-pattern>/admin</url-pattern>
 	</servlet-mapping>
 </web-app>
