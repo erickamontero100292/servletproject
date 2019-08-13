@@ -1,18 +1,16 @@
 package com.library.controller;
 
-import java.io.IOException;
-import java.util.List;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import com.library.dao.BookDao;
 import com.library.dao.DbConnection;
 import com.library.model.Book;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
 
 public class BookController extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -29,6 +27,8 @@ public class BookController extends HttpServlet {
             this.verDetalle(request, response);
         } else if ("lista".equals(action)) {
             this.verTodas(request, response);
+        } else if ("enviar".equals(action)) {
+            this.mostrarFormulario(request, response);
         }
 
     }
@@ -37,15 +37,11 @@ public class BookController extends HttpServlet {
 
         int idBook = Integer.valueOf(request.getParameter("id"));
         DbConnection dbConnection = new DbConnection();
-
         BookDao bookDao = new BookDao(dbConnection);
-
         Book book = bookDao.getById(idBook);
-
         // Compartimos la variable srv para acceder desde la vista con Expression Language
         request.setAttribute("book", book);
         RequestDispatcher rd;
-
         // Enviarmos respuesta a la vista detalle.jsp
         rd = request.getRequestDispatcher("/detalle.jsp");
         rd.forward(request, response);
@@ -66,6 +62,19 @@ public class BookController extends HttpServlet {
         request.setAttribute("books", lista);
         RequestDispatcher rd;
         rd = request.getRequestDispatcher("/books.jsp");
+        rd.forward(request, response);
+    }
+
+    protected void mostrarFormulario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int idBook = Integer.parseInt(request.getParameter("id"));
+        Book book = null;
+        DbConnection conn = new DbConnection();
+        BookDao bookDao = new BookDao(conn);
+        book = bookDao.getById(idBook);
+        conn.disconnect();
+        request.setAttribute("book", book);
+        RequestDispatcher rd;
+        rd = request.getRequestDispatcher("/requestForm.jsp");
         rd.forward(request, response);
     }
 

@@ -27,7 +27,7 @@
           <ul class="nav nav-justified">
             <li><a href="admin?action=crear">Alta de libro</a></li>
             <li><a href="libro?action=lista">Libros</a></li>
-            <li><a href="solicitud?action=solicitudes">Solicitudes</a></li> 
+            <li><a href="requestForm?action=solicitudes">Solicitudes</a></li>
             <li><a href="admin?action=logout">Salir</a></li>            
           </ul>
         </nav>

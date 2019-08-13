@@ -22,6 +22,11 @@
 		<servlet-class>com.library.controller.AdminController</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>RequestController</servlet-name>
+		<servlet-class>com.library.controller.RequestController</servlet-class>
+	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>SiteController</servlet-name>
 		<url-pattern>/homepage</url-pattern>
@@ -35,5 +40,10 @@
 	<servlet-mapping>
 		<servlet-name>AdminController</servlet-name>
 		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RequestController</servlet-name>
+		<url-pattern>/requestForm</url-pattern>
 	</servlet-mapping>
 </web-app>
