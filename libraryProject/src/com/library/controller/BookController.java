@@ -40,10 +40,8 @@ public class BookController extends HttpServlet {
         DbConnection dbConnection = new DbConnection();
         BookDao bookDao = new BookDao(dbConnection);
         Book book = bookDao.getById(idBook);
-        // Compartimos la variable srv para acceder desde la vista con Expression Language
         request.setAttribute("book", book);
         RequestDispatcher rd;
-        // Enviarmos respuesta a la vista detalle.jsp
         rd = request.getRequestDispatcher("/detalle.jsp");
         rd.forward(request, response);
     }
@@ -61,16 +59,10 @@ public class BookController extends HttpServlet {
         book.setDescription(description);
         book.setDetail(detail);
         book.setDatePublished(Integer.parseInt(datePublished.substring(0,4)));
-
-        //Imprimimos el objeto en consola (método toString)
         System.out.println(book);
-
-        // Procesamos los datos a guardar en BD
         DbConnection conn = new DbConnection();
         BookDao bookDao = new BookDao(conn);
         boolean status = bookDao.insert(book);
-
-        // Preparamos un mensaje para el usuario
         String msg = "";
         if (status) {
             msg = "El libro fue guardado correctamente.";
@@ -79,9 +71,7 @@ public class BookController extends HttpServlet {
         }
         conn.disconnect();
         RequestDispatcher rd;
-        // Compartimos la variable msg, para poder accederla desde la vista con Expression Language
         request.setAttribute("message", msg);
-        // Enviarmos respuesta a la vista mensaje.jsp
         rd = request.getRequestDispatcher("/message_admin.jsp");
         rd.forward(request, response);
     }
@@ -91,7 +81,6 @@ public class BookController extends HttpServlet {
         BookDao bookDao = new BookDao(conn);
         List<Book> lista = bookDao.getAll();
         conn.disconnect();
-        // Compartimos la variable lista, para poder accederla desde la vista
         request.setAttribute("books", lista);
         RequestDispatcher rd;
         rd = request.getRequestDispatcher("/books.jsp");

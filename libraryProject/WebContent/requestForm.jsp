@@ -40,28 +40,28 @@
         </div>
         <div class="panel-body">
 
-          <form action="requestForm"  method="post" >
+          <form action="requestForm"   method="post" enctype="multipart/form-data">
              <div class="form-group">
               <label for="name">Nombre</label>
-              <input type="text" class="form-control" name="name"   id="name">
+              <input type="text" class="form-control" name="name" value="${requestModel.name}" id="name">
             </div>                   
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control" name="email"  id="email">
+              <input type="email" class="form-control" name="email"  value="${requestModel.email}" id="email">
             </div>                   
             <div class="form-group">
               <label for="phone">Teléfono</label>
-              <input type="text" class="form-control" name="phone"   id="phone">
+              <input type="text" class="form-control" name="phone"   value="${requestModel.phone}" id="phone">
             </div>                   
             <div class="form-group">
               <label for="address">Ubicación</label>
-              <input type="text" class="form-control" name="address"   id="address">
+              <input type="text" class="form-control" name="address"  value="${requestModel.address}"  id="address">
             </div>                                          
-            <%--div class="form-group">
+            <div class="form-group">
               <label for="archivo">Documentos relacionados:</label>
               <input type="file" required id="archivo" name="archivo">
-              <p class="help-block">Solo se permiten archivos con extensiones [ .pdf, .odt ]</p>
-            </div>        --%>
+              <p class="help-block">Solo se permiten archivos con extensiones [ .pdf ]</p>
+            </div>
             <input type="hidden" value="${book.id}" name="idBook">
             <button type="submit" class="btn btn-success" >Solicitar</button>
           </form>

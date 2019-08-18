@@ -18,28 +18,24 @@ public class DbConnection {
          if (conn != null) {
             System.out.println("Connecting database [" + conn + "] OK");
          }
-      } catch (SQLException e) // Excepcion ocurrida por la conexion 
+      } catch (SQLException e)
       {
          System.out.println("Excepcion conexion: " + e.getMessage());         
-      } catch (ClassNotFoundException e) // Excepcion ocurrida por no encontrar el driver
+      } catch (ClassNotFoundException e)
       {
          System.out.println("Excepcion driver: " + e.getMessage());         
       }
    }
 
-   /**
-    * Permite retornar la instancia de la conexion
-    */
+
    public Connection getConnection() {      
       return conn;
    }
 
-   // Quitamos de memoria la conexion
    public void disconnect() {
       System.out.println("Closing database: [" + conn + "] OK");
       if (conn != null) {
          try {
-            // System.out.println("Desconectado de " + bd + " OK");
             conn.close();
          } catch (SQLException e) {
             System.out.println(e);

@@ -24,7 +24,6 @@ public class UserDao {
             ResultSet rs = preparedStatement.executeQuery();
             User usuario = new User(0);
             while (rs.next()) {
-                // Create an object for the user
                 usuario.setId(rs.getInt("iduser"));
                 usuario.setName(rs.getString("name"));
                 usuario.setEmail(rs.getString("email"));
