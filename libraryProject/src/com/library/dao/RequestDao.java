@@ -65,7 +65,6 @@ public class RequestDao {
                 request.setAddress(rs.getString("address"));
                 request.setFile(rs.getString("file"));
                 request.setBook( bookDao.getById(rs.getInt("idBook")) );
-                // Add servidor object to the list
                 list.add(request);
 
             }

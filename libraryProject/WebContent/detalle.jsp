@@ -58,7 +58,7 @@
       </div>      
       <!-- Site footer -->
       <footer class="footer">
-        <p>&copy; 2017 JASR.</p>
+        <p>&copy; 2019 EAMH.</p>
       </footer>
 
     </div> <!-- /container -->

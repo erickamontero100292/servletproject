@@ -28,9 +28,7 @@ public class RequestController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//Recibimos el parametro action, el cual servira para saber que accion GET se ejecutara
 		String action = request.getParameter("action");
-		// Recuperamos la session activa que viene junto con el request
 		HttpSession session = request.getSession();
 		RequestDispatcher rd;
 		switch (action) {
@@ -62,9 +60,7 @@ public class RequestController extends HttpServlet {
 		requestModel.setPhone(phone);
 		DbConnection conn = new DbConnection();
 		BookDao bookDao = new BookDao(conn);
-		// Buscamos el objeto Servidor, por medio del parametro idServidor que viene del boton "Enviar"
 		Book book = bookDao.getById(idBook);
-		//Inyeccion del objeto Servidor en la solicitud (Foreign Key)
 		requestModel.setBook(book);
 		RequestDao requestDao = new RequestDao(conn);
 		requestDao.insert(requestModel);

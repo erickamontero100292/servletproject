@@ -1,13 +1,15 @@
 package com.library.model;
 
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDate;
 
 public class Book {
 	int id;
 	String name;
 	String author;
-	Date datePublished;
+	int datePublished;
 	String description;
+	String detail;
 
 	public Book(int id) {
 		this.id = id;
@@ -17,7 +19,6 @@ public class Book {
 		
 		this.name = name;
 		this.author ="Ericka";
-		this.datePublished = new Date();
 	}
 
 	public int getId() {
@@ -40,10 +41,10 @@ public class Book {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public Date getDatePublished() {
+	public int getDatePublished() {
 		return datePublished;
 	}
-	public void setDatePublished(Date datePublished) {
+	public void setDatePublished(int datePublished) {
 		this.datePublished = datePublished;
 	}
 
@@ -53,5 +54,13 @@ public class Book {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getDetail() {
+		return detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
 	}
 }
