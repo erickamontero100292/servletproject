@@ -62,7 +62,7 @@
                   <td><a class="btn btn-default" href="libro?action=ver&id=${book.id}" role="button">Ver Detalles</a>
                   
                   <c:if test="${usuario.id > 0}">
-                    <a class="btn btn-default" href="admin?action=eliminar&idServidor=${book.id}" role="button">Eliminar</a>
+                    <a class="btn btn-default" href="admin?action=eliminar&idBook=${book.id}" role="button">Eliminar</a>
                   </c:if>
                         
                   </td>  
@@ -75,7 +75,7 @@
 
       <!-- Site footer -->
       <footer class="footer">
-        <p>&copy; 2017 JASR.</p>
+        <p>&copy; 2019 EAMH.</p>
       </footer>
 
     </div> <!-- /container -->

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
-    <title>Reserva de Servidor</title>
+    <title>Reserva de Libro</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -69,12 +69,11 @@
         </div>
       </div>
 
-      <!-- Site footer -->
       <footer class="footer">
-        <p>&copy; 2017 JASR.</p>
+        <p>&copy; 2019 EAMH.</p>
       </footer>
 
-    </div> <!-- /container -->
+    </div>
 
   </body>
 </html>

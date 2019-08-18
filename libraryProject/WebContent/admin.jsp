@@ -25,7 +25,7 @@
         <h3 class="text-muted">Administracion</h3>
         <nav>
           <ul class="nav nav-justified">
-            <li><a href="admin?action=crear">Alta de libro</a></li>
+            <li><a href="admin?action=crear">Crear libro</a></li>
             <li><a href="libro?action=lista">Libros</a></li>
             <li><a href="requestForm?action=solicitudes">Solicitudes</a></li>
             <li><a href="admin?action=logout">Salir</a></li>            
@@ -48,7 +48,7 @@
 
       <!-- Site footer -->
       <footer class="footer">
-        <p>&copy; 2017 JASR.</p>
+        <p>&copy; 2019 EAMH.</p>
       </footer>
 
     </div> <!-- /container -->

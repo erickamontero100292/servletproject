@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 public class BookController extends HttpServlet {
@@ -49,8 +50,40 @@ public class BookController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        doGet(request, response);
+        Book book = new Book(0);
+        String nameBook = request.getParameter("nombre");
+        String nameAutor = request.getParameter("author");
+        String description = request.getParameter("descripcion");
+        String detail = request.getParameter("detalle");
+        String datePublished = request.getParameter("datePublished");
+        book.setName(nameBook);
+        book.setAuthor(nameAutor);
+        book.setDescription(description);
+        book.setDetail(detail);
+        book.setDatePublished(Integer.parseInt(datePublished.substring(0,4)));
+
+        //Imprimimos el objeto en consola (método toString)
+        System.out.println(book);
+
+        // Procesamos los datos a guardar en BD
+        DbConnection conn = new DbConnection();
+        BookDao bookDao = new BookDao(conn);
+        boolean status = bookDao.insert(book);
+
+        // Preparamos un mensaje para el usuario
+        String msg = "";
+        if (status) {
+            msg = "El libro fue guardado correctamente.";
+        } else {
+            msg = "Ocurrio un error. El libro no fue guardado.";
+        }
+        conn.disconnect();
+        RequestDispatcher rd;
+        // Compartimos la variable msg, para poder accederla desde la vista con Expression Language
+        request.setAttribute("message", msg);
+        // Enviarmos respuesta a la vista mensaje.jsp
+        rd = request.getRequestDispatcher("/message_admin.jsp");
+        rd.forward(request, response);
     }
 
     protected void verTodas(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

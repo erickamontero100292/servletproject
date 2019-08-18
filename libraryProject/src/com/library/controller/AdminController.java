@@ -22,18 +22,11 @@ public class AdminController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//Recibimos el parametro action, el cual servira para saber que accion GET se ejecutara
 		String action = request.getParameter("action");
-
-		// Recuperamos la session activa que viene junto con el request
 		HttpSession session = request.getSession();
 		RequestDispatcher rd;
 		String msg = "";
-        /*
-         Comparamos que accion viene en la peticion GET, es decir, que boton/opcion selecciono el usuario.
-         Para cada accion excepto para logout, primero verificamos que existe un usuario en la session,
-         si no existe lo mandamos al formulario de login (de esta forma se maneja la seguridad de la app)
-        */
+
 		switch (action) {
 			case "login":
 				// Aqui no existe todavia una sesion para el usuario, lo mandamos al form de login
