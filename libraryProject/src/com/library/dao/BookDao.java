@@ -107,4 +107,18 @@ public class BookDao {
         }
         return true;
     }
+
+    public int delete(int idBook) {
+        try {
+            String sql = "delete from book where id=?";
+            PreparedStatement preparedStatement = conn.getConnection().prepareStatement(sql);
+            preparedStatement.setInt(1, idBook);
+            int rows = preparedStatement.executeUpdate();
+            return rows;
+
+        } catch (SQLException e) {
+            System.out.println("Error BookDao.eliminar: " + e.getMessage());
+            return 0;
+        }
+    }
 }

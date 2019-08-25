@@ -1,5 +1,8 @@
 package com.library.controller;
 
+import com.library.constants.ConstantController;
+import com.library.constants.ConstantView;
+import com.library.dao.BookDao;
 import com.library.dao.DbConnection;
 import com.library.dao.UserDao;
 import com.library.model.User;
@@ -19,6 +22,7 @@ public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -29,33 +33,34 @@ public class AdminController extends HttpServlet {
 
 		switch (action) {
 			case "login":
-				if (session.getAttribute("usuario") == null) {
-					request.setAttribute("message", msg);
-					rd = request.getRequestDispatcher("/login.jsp");
+				if (session.getAttribute(ConstantController.USUARIO.getProperty()) == null) {
+					request.setAttribute(ConstantController.MESSAGE.getProperty(), msg);
+					rd = request.getRequestDispatcher(ConstantView.LOGIN.getName());
 					rd.forward(request, response);
 				} else {
-					rd = request.getRequestDispatcher("/admin.jsp");
+					rd = request.getRequestDispatcher(ConstantView.ADMIN.getName());
 					rd.forward(request, response);
 				}
 				break;
 			case "crear":
-				if (session.getAttribute("usuario") == null) {
+				if (session.getAttribute(ConstantController.USUARIO.getProperty()) == null) {
 					msg = "Acceso Denegado.";
-					request.setAttribute("message", msg);
-					rd = request.getRequestDispatcher("/login.jsp");
+					request.setAttribute(ConstantController.MESSAGE.getProperty(), msg);
+					rd = request.getRequestDispatcher(ConstantView.LOGIN.getName());
 					rd.forward(request, response);
 				} else {
-					rd = request.getRequestDispatcher("/frmbook.jsp");
+					rd = request.getRequestDispatcher(ConstantView.FORM_BOOK.getName());
 					rd.forward(request, response);
 				}
 				break;
 			case "eliminar":
-				if (session.getAttribute("usuario") == null) {
+				if (session.getAttribute(ConstantController.USUARIO.getProperty()) == null) {
 					msg = "Acceso Denegado.";
-					request.setAttribute("message", msg);
-					rd = request.getRequestDispatcher("/login.jsp");
+					request.setAttribute(ConstantController.MESSAGE.getProperty(), msg);
+					rd = request.getRequestDispatcher(ConstantView.LOGIN.getName());
 					rd.forward(request, response);
 				} else {
+				this.deleteBook(request,response);
 				}
 				break;
 			case "logout":
@@ -81,16 +86,33 @@ public class AdminController extends HttpServlet {
 
 		RequestDispatcher rd;
 		if (usuario.getId() > 0) {
-			session.setAttribute("usuario", usuario);
+			session.setAttribute(ConstantController.USUARIO.getProperty(), usuario);
 			rd = request.getRequestDispatcher("/admin.jsp");
 			rd.forward(request, response);
 
 		} else {
 			msg = "Usuario y/o password incorrectos";
-			request.setAttribute("message", msg);
-			rd = request.getRequestDispatcher("/login.jsp");
+			request.setAttribute(ConstantController.MESSAGE.getProperty(), msg);
+			rd = request.getRequestDispatcher(ConstantView.LOGIN.getName());
 			rd.forward(request, response);
 		}
+	}
+	private void deleteBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int idBook = Integer.parseInt(request.getParameter("idBook"));
+		DbConnection conn = new DbConnection();
+		BookDao bookDao = new BookDao(conn);
+		int respuesta = bookDao.delete(idBook);
+		String msg = "";
+		if (respuesta == 1) {
+			msg = "El libro fue eliminado correctamente.";
+		} else {
+			msg = "El libro tiene solicitudes asociadas";
+		}
+		conn.disconnect();
+		request.setAttribute("message", msg);
+		RequestDispatcher rd;
+		rd = request.getRequestDispatcher("/message_admin.jsp");
+		rd.forward(request, response);
 	}
 
 
