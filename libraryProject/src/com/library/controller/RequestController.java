@@ -1,5 +1,7 @@
 package com.library.controller;
 
+import com.library.constants.ConstantView;
+import com.library.constants.Messages;
 import com.library.dao.BookDao;
 import com.library.dao.DbConnection;
 import com.library.dao.RequestDao;
@@ -34,7 +36,7 @@ public class RequestController extends HttpServlet {
         switch (action) {
             case "solicitudes":
                 if (session.getAttribute("usuario") == null) {
-                    rd = request.getRequestDispatcher("/login.jsp");
+                    rd = request.getRequestDispatcher(ConstantView.LOGIN.getName());
                     rd.forward(request, response);
                 } else {
                     this.verSolicitudes(request, response);
@@ -90,11 +92,11 @@ public class RequestController extends HttpServlet {
             rd.forward(request, response);
         } else {
 
-            msg = "Solo se permiten archivos de tipo PDF";
+            msg = Messages.FILE_PDF.getMessage();
             request.setAttribute("message", msg);
             request.setAttribute("requestModel", requestModel);
             request.setAttribute("book", requestModel.getBook());
-            rd = request.getRequestDispatcher("/requestForm.jsp");
+            rd = request.getRequestDispatcher(ConstantView.REQUEST_FORM.getName());
             rd.forward(request, response);
         }
     }
@@ -112,7 +114,7 @@ public class RequestController extends HttpServlet {
 
         request.setAttribute("message", msg);
         request.setAttribute("requests", requestList);
-        rd = request.getRequestDispatcher("/requests.jsp");
+        rd = request.getRequestDispatcher(ConstantView.REQUEST.getName());
         rd.forward(request, response);
     }
 
