@@ -1,5 +1,7 @@
 package com.library.controller;
 
+import com.library.constants.ConstantView;
+import com.library.constants.Messages;
 import com.library.dao.BookDao;
 import com.library.dao.DbConnection;
 import com.library.model.Book;
@@ -10,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 public class BookController extends HttpServlet {
@@ -25,16 +26,16 @@ public class BookController extends HttpServlet {
             throws ServletException, IOException {
         String action = request.getParameter("action");
         if ("ver".equals(action)) {
-            this.verDetalle(request, response);
+            this.details(request, response);
         } else if ("lista".equals(action)) {
-            this.verTodas(request, response);
+            this.allLoad(request, response);
         } else if ("enviar".equals(action)) {
-            this.mostrarFormulario(request, response);
+            this.showForms(request, response);
         }
 
     }
 
-    protected void verDetalle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void details(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int idBook = Integer.valueOf(request.getParameter("id"));
         DbConnection dbConnection = new DbConnection();
@@ -42,7 +43,7 @@ public class BookController extends HttpServlet {
         Book book = bookDao.getById(idBook);
         request.setAttribute("book", book);
         RequestDispatcher rd;
-        rd = request.getRequestDispatcher("/detalle.jsp");
+        rd = request.getRequestDispatcher(ConstantView.DETAIL.getName());
         rd.forward(request, response);
     }
 
@@ -59,35 +60,34 @@ public class BookController extends HttpServlet {
         book.setDescription(description);
         book.setDetail(detail);
         book.setDatePublished(Integer.parseInt(datePublished.substring(0,4)));
-        System.out.println(book);
         DbConnection conn = new DbConnection();
         BookDao bookDao = new BookDao(conn);
         boolean status = bookDao.insert(book);
         String msg = "";
         if (status) {
-            msg = "El libro fue guardado correctamente.";
+            msg = Messages.BOOK_SAVE.getMessage();
         } else {
-            msg = "Ocurrio un error. El libro no fue guardado.";
+            msg = Messages.BOOK_SAVE_ERROR.getMessage();
         }
         conn.disconnect();
         RequestDispatcher rd;
         request.setAttribute("message", msg);
-        rd = request.getRequestDispatcher("/message_admin.jsp");
+        rd = request.getRequestDispatcher(ConstantView.MESSAGE_ADMIN.getName());
         rd.forward(request, response);
     }
 
-    protected void verTodas(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void allLoad(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DbConnection conn = new DbConnection();
         BookDao bookDao = new BookDao(conn);
         List<Book> lista = bookDao.getAll();
         conn.disconnect();
         request.setAttribute("books", lista);
         RequestDispatcher rd;
-        rd = request.getRequestDispatcher("/books.jsp");
+        rd = request.getRequestDispatcher(ConstantView.BOOKS.getName());
         rd.forward(request, response);
     }
 
-    protected void mostrarFormulario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void showForms(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idBook = Integer.parseInt(request.getParameter("id"));
         Book book = null;
         DbConnection conn = new DbConnection();
@@ -96,7 +96,7 @@ public class BookController extends HttpServlet {
         conn.disconnect();
         request.setAttribute("book", book);
         RequestDispatcher rd;
-        rd = request.getRequestDispatcher("/requestForm.jsp");
+        rd = request.getRequestDispatcher(ConstantView.REQUEST_FORM.getName());
         rd.forward(request, response);
     }
 
