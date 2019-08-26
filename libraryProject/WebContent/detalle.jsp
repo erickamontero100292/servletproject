@@ -48,17 +48,14 @@
           <h5><b>Fecha de publicacion</b>: ${book.datePublished}</h5>
           <b>Descripcion:</b><br>
           <p class="text-justify">${book.description}</p>
-          
-          <!--
-          Mostramos un boton para permitir a un usuario enviar documentos adjuntos a su solicitud.
-          -->          
-          <p><a class="btn btn-default btn-success" title="Reservar" href="libro?action=enviar&id=${book.name}" role="button">Reservar</a></p>
+
+          <p><a class="btn btn-default btn-success" title="Reservar" href="libro?action=enviar&id=${book.id}" role="button">Reservar</a></p>
         </div>
         
       </div>      
       <!-- Site footer -->
       <footer class="footer">
-        <p>&copy; 2017 JASR.</p>
+        <p>&copy; 2019 EAMH.</p>
       </footer>
 
     </div> <!-- /container -->

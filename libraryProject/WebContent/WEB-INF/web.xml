@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	id="WebApp_ID" version="3.1">
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 	<welcome-file-list>
 		<welcome-file>homepage</welcome-file>
 	</welcome-file-list>
@@ -22,6 +20,11 @@
 		<servlet-class>com.library.controller.AdminController</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>RequestController</servlet-name>
+		<servlet-class>com.library.controller.RequestController</servlet-class>
+	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>SiteController</servlet-name>
 		<url-pattern>/homepage</url-pattern>
@@ -35,5 +38,10 @@
 	<servlet-mapping>
 		<servlet-name>AdminController</servlet-name>
 		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RequestController</servlet-name>
+		<url-pattern>/requestForm</url-pattern>
 	</servlet-mapping>
 </web-app>

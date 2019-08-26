@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.library.constants.ConstantView;
 import com.library.dao.BookDao;
 import com.library.dao.DbConnection;
 import com.library.model.Book;
@@ -19,7 +20,6 @@ public class SiteController extends HttpServlet {
 
 	public SiteController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -30,13 +30,12 @@ public class SiteController extends HttpServlet {
 		List<Book> bookList = bookDao.getUltimos();
 		conn.disconnect();
 		request.setAttribute("bookList", bookList);
-		rd = request.getRequestDispatcher("/index.jsp");
+		rd = request.getRequestDispatcher(ConstantView.INDEX.getName());
 		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
